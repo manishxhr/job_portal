@@ -8,7 +8,7 @@
 	<meta name="HandheldFriendly" content="True" />
 	<meta name="pinterest" content="nopin" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
-    <link rel="stylesheet" type="text/css" href="{{ ' assets/css/style.css ' }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('frontend/css/style.css') }}" />
 	<!-- Fav Icon -->
 	<link rel="shortcut icon" type="image/x-icon" href="#" />
 </head>
@@ -52,8 +52,8 @@
                 <div class="card border-0 shadow mb-4 p-3">
                     <div class="s-body text-center mt-3">
                         <img src="assets/assets/images/avatar7.png" alt="avatar"  class="rounded-circle img-fluid" style="width: 150px;">
-                        <h5 class="mt-3 pb-0">Mohit Singh</h5>
-                        <p class="text-muted mb-1 fs-6">Full Stack Developer</p>
+                        <h5 class="mt-3 pb-0">{{ $user->name }}</h5>
+                        <p class="text-muted mb-1 fs-6">{{ $user->designation }}</p>
                         <div class="d-flex justify-content-center mb-2">
                             <button data-bs-toggle="modal" data-bs-target="#exampleModal" type="button" class="btn btn-primary">Change Profile Picture</button>
                         </div>
@@ -82,29 +82,33 @@
                 </div>
             </div>
             <div class="col-lg-9">
-                <div class="card border-0 shadow mb-4">
+                
+                <div class="card border-0 shadow mb-4" >
+                    <form action="{{ route('updateprofile') }}" method="POST">
+                        @csrf
                     <div class="card-body  p-4">
                         <h3 class="fs-4 mb-1">My Profile</h3>
                         <div class="mb-4">
                             <label for="" class="mb-2">Name*</label>
-                            <input type="text" placeholder="Enter Name" class="form-control" value="">
+                            <input type="text" name="name" placeholder="Enter Name" class="form-control" value="{{ $user->name }}">
                         </div>
-                        <div class="mb-4">
+                        {{-- <div class="mb-4">
                             <label for="" class="mb-2">Email*</label>
-                            <input type="text" placeholder="Enter Email" class="form-control">
-                        </div>
+                            <input type="text" name="email" placeholder="Enter Email" class="form-control" value="{{ $user->email }}">
+                        </div> --}}
                         <div class="mb-4">
                             <label for="" class="mb-2">Designation*</label>
-                            <input type="text" placeholder="Designation" class="form-control">
+                            <input type="text" name="designation" placeholder="Designation" class="form-control" value="{{ $user->designation }}">
                         </div>
                         <div class="mb-4">
                             <label for="" class="mb-2">Mobile*</label>
-                            <input type="text" placeholder="Mobile" class="form-control">
+                            <input type="text" name="mobile" placeholder="Mobile" class="form-control" value="{{ $user->mobile }}">
                         </div>                        
                     </div>
                     <div class="card-footer  p-4">
-                        <button type="button" class="btn btn-primary">Update</button>
+                        <button type="submit" class="btn btn-primary">Update</button>
                     </div>
+                    </form> 
                 </div>
 
                 <div class="card border-0 shadow mb-4">
@@ -124,7 +128,7 @@
                         </div>                        
                     </div>
                     <div class="card-footer  p-4">
-                        <button type="button" class="btn btn-primary">Update</button>
+                        <button type="submit" class="btn btn-primary">Update</button>
                     </div>
                 </div>                
             </div>
@@ -160,12 +164,12 @@
     <p class="text-center text-white pt-3 fw-bold fs-6">© 2023 xyz company, all right reserved</p>
 </div>
 </footer> 
-<script src="assets/js/jquery-3.6.0.min.js"></script>
-<script src="assets/js/bootstrap.bundle.5.1.3.min.js"></script>
-<script src="assets/js/instantpages.5.1.0.min.js"></script>
-<script src="assets/js/lazyload.17.6.0.min.js"></script>
-<script src="assets/js/slick.min.js"></script>
-<script src="assets/js/lightbox.min.js"></script>
-<script src="assets/js/custom.js"></script>
+<script src="{{ asset('frontend/js/jquery-3.6.0.min.js') }}"></script>
+<script src="{{ asset('frontend/js/bootstrap.bundle.5.1.3.min.js') }}"></script>
+<script src="{{ asset('frontend/js/instantpages.5.1.0.min.js') }}"></script>
+<script src="{{ asset('frontend/js/lazyload.17.6.0.min.js') }}"></script>
+<script src="{{ asset('frontend/js/slick.min.js') }}"></script>
+<script src="{{ asset('frontend/js/lightbox.min.js') }}"></script>
+<script src="{{ asset('frontend/js/custom.js') }}"></script>
 </body>
 </html>

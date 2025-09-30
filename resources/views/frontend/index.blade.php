@@ -16,7 +16,7 @@
 <header>
 	<nav class="navbar navbar-expand-lg navbar-light bg-white shadow py-3">
 		<div class="container">
-			<a class="navbar-brand" href={{ route('') }}>CareerVibe</a>
+			<a class="navbar-brand" href={{ route('home') }}>CareerVibe</a>
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
@@ -35,7 +35,7 @@
 		</div>
 	</nav>
 </header>
-<section class="section-0 lazy d-flex bg-image-style dark align-items-center "   class="" data-bg="assets/images/banner5.jpg">
+<section class="section-0 lazy d-flex bg-image-style dark align-items-center "   class="" data-bg="{{  asset('frontend/images/banner5.jpg') }}">
     <div class="container">
         <div class="row">
             <div class="col-12 col-xl-8">

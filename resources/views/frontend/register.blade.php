@@ -42,28 +42,38 @@
             <div class="col-md-5">
                 <div class="card shadow border-0 p-5">
                     <h1 class="h3">Register</h1>
-                    <form action="">
+                    <form action="{{ route('userregister') }}" method="POST">
+                        @csrf
                         <div class="mb-3">
                             <label for="" class="mb-2">Name*</label>
-                            <input type="text" name="name" id="name" class="form-control" placeholder="Enter Name">
+                            <input type="text" name="name" class="form-control" placeholder="Enter Name">
+                            @error('name')
+                            <span class="alert-danger">{{ $message }}</span>
+                            @enderror
                         </div> 
                         <div class="mb-3">
                             <label for="" class="mb-2">Email*</label>
-                            <input type="text" name="email" id="email" class="form-control" placeholder="Enter Email">
+                            <input type="text" name="email" class="form-control" placeholder="Enter Email">
+                             @error('email')
+                            <span class="alert-danger">{{ $message }}</span>
+                            @enderror
                         </div> 
                         <div class="mb-3">
                             <label for="" class="mb-2">Password*</label>
-                            <input type="password" name="name" id="name" class="form-control" placeholder="Enter Password">
+                            <input type="password" name="password" class="form-control" placeholder="Enter Password">
+                             @error('password')
+                            <span class="alert-danger">{{ $message }}</span>
+                            @enderror
                         </div> 
-                        <div class="mb-3">
+                        {{-- <div class="mb-3">
                             <label for="" class="mb-2">Confirm Password*</label>
-                            <input type="password" name="name" id="name" class="form-control" placeholder="Enter Password">
-                        </div> 
+                            <input type="password" name="confirm_password" class="form-control" placeholder="Enter Password">
+                        </div>  --}}
                         <button class="btn btn-primary mt-2">Register</button>
                     </form>                    
                 </div>
                 <div class="mt-4 text-center">
-                    <p>Have an account? <a  href="login.html">Login</a></p>
+                    <p>Have an account? <a  href="{{ route('login') }}">Login</a></p>
                 </div>
             </div>
         </div>

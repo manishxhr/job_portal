@@ -8,7 +8,7 @@
 	<meta name="HandheldFriendly" content="True" />
 	<meta name="pinterest" content="nopin" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('frontend/css/style.css') }}" />
 	<!-- Fav Icon -->
 	<link rel="shortcut icon" type="image/x-icon" href="#" />
 </head>
@@ -42,14 +42,21 @@
             <div class="col-md-5">
                 <div class="card shadow border-0 p-5">
                     <h1 class="h3">Login</h1>
-                    <form action="account.html" method="post">
+                    <form action="{{ route('userlogin') }}" method="post">
+                        @csrf
                         <div class="mb-3">
                             <label for="" class="mb-2">Email*</label>
-                            <input type="text" name="email" id="email" class="form-control" placeholder="example@example.com">
+                            <input type="text" name="email" class="form-control" placeholder="example@example.com">
+                            @error('email')
+                            <span class="alert-danger">{{ $message }}</span>
+                            @enderror
                         </div> 
                         <div class="mb-3">
                             <label for="" class="mb-2">Password*</label>
-                            <input type="password" name="name" id="name" class="form-control" placeholder="Enter Password">
+                            <input type="password" name="password" class="form-control" placeholder="Enter Password">
+                             @error('password')
+                            <span class="alert-danger">{{ $message }}</span>
+                            @enderror
                         </div> 
                         <div class="justify-content-between d-flex">
                         <button class="btn btn-primary mt-2">Login</button>
@@ -58,7 +65,7 @@
                     </form>                    
                 </div>
                 <div class="mt-4 text-center">
-                    <p>Do not have an account? <a  href="register.html">Register</a></p>
+                    <p>Do not have an account? <a  href="{{ route('register') }}">Register</a></p>
                 </div>
             </div>
         </div>
@@ -94,12 +101,12 @@
     <p class="text-center text-white pt-3 fw-bold fs-6">© 2023 xyz company, all right reserved</p>
 </div>
 </footer> 
-<script src="assets/js/jquery-3.6.0.min.js"></script>
-<script src="assets/js/bootstrap.bundle.5.1.3.min.js"></script>
-<script src="assets/js/instantpages.5.1.0.min.js"></script>
-<script src="assets/js/lazyload.17.6.0.min.js"></script>
-<script src="assets/js/slick.min.js"></script>
-<script src="assets/js/lightbox.min.js"></script>
-<script src="assets/js/custom.js"></script>
+<script src="{{ asset('frontend/js/jquery-3.6.0.min.js') }}"></script>
+<script src="{{ asset('frontend/js/bootstrap.bundle.5.1.3.min.js') }}"></script>
+<script src="{{ asset('frontend/js/instantpages.5.1.0.min.js') }}"></script>
+<script src="{{ asset('frontend/js/lazyload.17.6.0.min.js') }}"></script>
+<script src="{{ asset('frontend/js/slick.min.js') }}"></script>
+<script src="{{ asset('frontend/js/lightbox.min.js') }}"></script>
+<script src="{{ asset('frontend/js/custom.js') }}"></script>
 </body>
 </html>
