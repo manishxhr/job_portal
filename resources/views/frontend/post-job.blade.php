@@ -8,7 +8,7 @@
 	<meta name="HandheldFriendly" content="True" />
 	<meta name="pinterest" content="nopin" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+    <link rel="stylesheet" type="text/css" href=" {{   asset('frontend/css/style.css') }}" />
 	<!-- Fav Icon -->
 	<link rel="shortcut icon" type="image/x-icon" href="#" />
 </head>
@@ -52,7 +52,7 @@
                 <div class="card border-0 shadow mb-4 p-3">
                     <div class="s-body text-center mt-3">
                         <img src="assets/images/avatar7.png" alt="avatar"  class="rounded-circle img-fluid" style="width: 150px;">
-                        <h5 class="mt-3 pb-0">Mohit Singh</h5>
+                        <h5 class="mt-3 pb-0"> $user->name </h5>
                         <p class="text-muted mb-1 fs-6">Full Stack Developer</p>
                         <div class="d-flex justify-content-center mb-2">
                         <button data-bs-toggle="modal" data-bs-target="#exampleModal" type="button" class="btn btn-primary">Change Profile Picture</button>
@@ -210,12 +210,12 @@
     <p class="text-center text-white pt-3 fw-bold fs-6">© 2023 xyz company, all right reserved</p>
 </div>
 </footer> 
-<script src="assets/js/jquery-3.6.0.min.js"></script>
-<script src="assets/js/bootstrap.bundle.5.1.3.min.js"></script>
-<script src="assets/js/instantpages.5.1.0.min.js"></script>
-<script src="assets/js/lazyload.17.6.0.min.js"></script>
-<script src="assets/js/slick.min.js"></script>
-<script src="assets/js/lightbox.min.js"></script>
-<script src="assets/js/custom.js"></script>
+<script src="{{ asset('frontend/js/jquery-3.6.0.min.js') }}"></script>
+<script src="{{ asset('frontend/js/bootstrap.bundle.5.1.3.min.js') }}"></script>
+<script src="{{ asset('frontend/js/instantpages.5.1.0.min.js') }}"></script>
+<script src="{{ asset('frontend/js/lazyload.17.6.0.min.js') }}"></script>
+<script src="{{ asset('frontend/js/slick.min.js') }}"></script>
+<script src="{{ asset('frontend/js/lightbox.min.js') }}"></script>
+<script src="{{ asset('frontend/js/custom.js') }}"></script>
 </body>
 </html>

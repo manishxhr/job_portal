@@ -51,7 +51,7 @@
             <div class="col-lg-3">
                 <div class="card border-0 shadow mb-4 p-3">
                     <div class="s-body text-center mt-3">
-                        <img src="assets/assets/images/avatar7.png" alt="avatar"  class="rounded-circle img-fluid" style="width: 150px;">
+                        <img src="{{ asset('frontend/images/avatar7.png') }}" alt="avatar"  class="rounded-circle img-fluid" style="width: 150px;">
                         <h5 class="mt-3 pb-0">{{ $user->name }}</h5>
                         <p class="text-muted mb-1 fs-6">{{ $user->designation }}</p>
                         <div class="d-flex justify-content-center mb-2">
@@ -66,7 +66,7 @@
                                 <a href="account.html">Account Settings</a>
                             </li>
                             <li class="list-group-item d-flex justify-content-between align-items-center p-3">
-                                <a href="post-job.html">Post a Job</a>
+                                <a href="{{url('/post')  }}">Post a Job</a>
                             </li>
                             <li class="list-group-item d-flex justify-content-between align-items-center p-3">
                                 <a href="my-jobs.html">My Jobs</a>
@@ -103,7 +103,13 @@
                         <div class="mb-4">
                             <label for="" class="mb-2">Mobile*</label>
                             <input type="text" name="mobile" placeholder="Mobile" class="form-control" value="{{ $user->mobile }}">
-                        </div>                        
+                        </div>  
+                        @if (session('success'))
+                         <div class="mb-4">
+                            {{-- <label for="" class="mb-2">Status </label> --}}
+                            <span class="alert alert-success">{{ session('success') }} </span>
+                                  @endif  
+
                     </div>
                     <div class="card-footer  p-4">
                         <button type="submit" class="btn btn-primary">Update</button>
@@ -143,10 +149,14 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form>
+        <form action="{{ route('updatepic') }}" method="POST" enctype="multipart/form-data">
+            @csrf
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Profile Image</label>
-                <input type="file" class="form-control" id="image"  name="image">
+                <input type="file" class="form-control" name="image">
+                @error('image')
+                    <div class="text text-danger">{{ $message }}</div>
+                @enderror
             </div>
             <div class="d-flex justify-content-end">
                 <button type="submit" class="btn btn-primary mx-3">Update</button>

@@ -21,3 +21,6 @@ Route::post('/login',[AccountController::class, 'userLogin'])->name('userlogin')
 
 Route::get('/account',[AccountController::class, 'profile'])->name('account');
 Route::post('/account',[AccountController::class, 'updateProfile'])->name('updateprofile');
+Route::post('/account/pic',[AccountController::class, 'updateProfilePic'])->name('updatepic');
+
+Route::get('/post-job',[AccountController::class, 'postJob']);

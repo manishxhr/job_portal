@@ -60,10 +60,26 @@ class AccountController extends Controller
         ]);
         $user=User::findOrFail($id);
         if($user->update($data)){
-            return redirect(route('account'));
+            return redirect(route('account'))->with('success','profile updated successfully');
         }
-        
 
     }
+
+    public function updateProfilePic(Request $request){
+        $pic=$request->validate([
+            'image'=>'required|image'
+        ]);
+        $user=Auth::user();
+        $image=$request->image;
+
+    }
+
+
+    public function postJob(){
+        $user= Auth::user();
+        return view('frontend.post-job');
+    }
+
+
 
 }
